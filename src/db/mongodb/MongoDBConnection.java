@@ -168,4 +168,3 @@ public class MongoDBConnection implements DBConnection {
 	}
 
 }
-
