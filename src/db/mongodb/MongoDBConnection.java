@@ -166,5 +166,17 @@ public class MongoDBConnection implements DBConnection {
 		// TODO Auto-generated method stub
 		return false;
 	}
+	
+	public boolean registerUser(String userId, String password, String firstname, String lastname) {
+	    FindIterable<Document> iterable = db.getCollection("users").find(eq("user_id", userId));
+
+	    if (iterable.first() == null) {
+	      db.getCollection("users").insertOne(new Document().append("first_name", firstname)
+	          .append("last_name", lastname).append("password", password).append("user_id", userId));
+	      return true;
+	    }
+	    return false;
+	  }
+
 
 }
