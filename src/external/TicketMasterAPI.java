@@ -45,6 +45,7 @@ public class TicketMasterAPI {
 		
 		try {
 			HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
+			// GET by default
 			connection.setRequestMethod("GET");
 			
 			int responseCode = connection.getResponseCode();
